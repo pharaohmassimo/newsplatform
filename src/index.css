@@ -1,0 +1,17 @@
+#root , html, body{
+    height: 100vh; /****the height of application should take full height of the screen**/
+}
+
+body{
+    margin: 0;
+    background-color: whitesmoke;
+
+}
+
+* {
+    box-sizing: border-box;  /**when you count height and width of the elements it also takes padding marging etc into consideration**/
+}
+
+html{
+    scroll-behavior: smooth; 
+}
