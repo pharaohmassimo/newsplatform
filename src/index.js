@@ -14,3 +14,9 @@ root.render(
         <App />
     </React.StrictMode>
 );
+
+
+
+
+
+// the bridge between the components created in the App.js and the web browser
