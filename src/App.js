@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";                  // useEffect so our alan Btn is initialized once our platform runs
 import alanBtn from '@alan-ai/alan-sdk-web';               //importing the alan ai 
 import NewsCards from "./components/NewsCards/NewsCards";
+import { Typography } from '@material-ui/core';
 
 import wordsToNumbers from "words-to-numbers";
 import useStyles from './styles.js';
@@ -10,7 +11,9 @@ const alanKey = '3bdbf3c51a1dfe6597f5c89bf1e764922e956eca572e1d8b807a3e2338fdd0d
 const App = () => {
     const [newsArticles, setNewsArticles] = useState([]);
     const [activeArticle, setActiveArticle] = useState(-1);            //set active article
-    const classes = useStyles();                            //
+    
+    const classes = useStyles();    
+
 
     useEffect(() => {
         alanBtn({
@@ -26,27 +29,40 @@ const App = () => {
                     const article = articles[parsedNumber - 1];
 
                     if ( parsedNumber > articles.length ) {
-
-                        alanBtn().playText('Please try that again')
+                        alanBtn().playText('Please try that again...');
                     } else if (article){
-
                         window.open(article.url, '_blank');
                         alanBtn().playText('Opening...');
                     } else {
-
                         alanBtn().playText('Please try that again...');
                     }
                 }
-            }
-        })
+            },
+        });
     }, []);                                                                                        //useeffect takes two components - callback function and a dependency array                         
    
     return (
-        <div>
+        <div style={{backgroundImage: `url("https://static.vecteezy.com/system/resources/previews/031/351/944/non_2x/3d-rendering-technology-robotics-data-analytics-or-futuristic-cyborg-with-artificial-intelligence-concept-by-ai-generated-free-photo.jpg")`, minHeight: '100%', backgroundAttachment: 'fixed', minWidth: '100%'}}>
             <div className={classes.logoContainer}>
-                <img src="https://assets-global.website-files.com/64ec3fc5bb945b48c0a37b1c/6513eeb6c864c1282f0ea7d9_Customization_benefit1.webp" className={classes.alanLogo} alt="alan logo" />
+                {newsArticles.length ? (
+                    <div className={classes.infoContainer}>
+                        <div className={classes.card}  style={{borderRadius: '0'}}><Typography variant="h6" component="h2" style={{fontFamily: 'Montserrat, sans-serif'}}>TRY SAYING: <br /><br />Open article number [4]</Typography></div>
+                        <div className={classes.card}  style={{borderRadius: '0'}}><Typography variant="h6" component="h2" style={{fontFamily: 'Montserrat, sans-serif'}}>TRY SAYING: <br /><br />Go back</Typography></div>
+                    </div>
+                    ) : null} 
+
+                <img src="https://storage.buzzsprout.com/tlnzjvd9v8uzx0gfd16wtbbrieym" className={classes.alanLogo} alt="alan logo" style={{opacity: '0.9'}}/>
             </div>
             <NewsCards articles={newsArticles} activeArticle={activeArticle} />
+
+            {!newsArticles.length ? (
+            <div className={classes.footer}>
+                <Typography variant="body1" component="h2">
+                        <a className={classes.link} href="https://www.linkedin.com/in/pharaoh-massimo-732a4024a"> Creator | Pharaoh Massimo </a>        
+                </Typography>
+            </div>
+            ) : null}    
+
         </div>
     );
 };

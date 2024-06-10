@@ -18,7 +18,7 @@ export default makeStyles((theme) => ({
   },
   link: {
     textDecoration: 'none',
-    color: 'rgba(21, 101, 192)',
+    color: 'white',
   },
   image: {
     marginLeft: 20,
@@ -30,8 +30,9 @@ export default makeStyles((theme) => ({
     width: '50%',
     padding: '3%',
     borderRadius: 10,
+    border: '1px solid white',
     color: 'white',
-    backgroundColor: 'rgba(21, 101, 192)',
+    backgroundColor: '#283593',
     margin: '0 12px',
     textAlign: 'center',
     height: '25vmin',
@@ -66,7 +67,7 @@ export default makeStyles((theme) => ({
   },
   alanLogo: {
     height: '27vmin',
-    borderRadius: '15%',
+    borderRadius: '0%',
     padding: '0 5%',
     margin: '3% 0',
     [theme.breakpoints.down('sm')]: {
