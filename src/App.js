@@ -42,7 +42,7 @@ const App = () => {
     }, []);                                                                                        //useeffect takes two components - callback function and a dependency array                         
    
     return (
-        <div style={{backgroundImage: `url("https://static.vecteezy.com/system/resources/previews/031/351/944/non_2x/3d-rendering-technology-robotics-data-analytics-or-futuristic-cyborg-with-artificial-intelligence-concept-by-ai-generated-free-photo.jpg")`, minHeight: '100%', backgroundAttachment: 'fixed', minWidth: '100%'}}>
+        <div style={{backgroundImage: `url("https://aimadeimage.net/wp-content/uploads/2023/11/ai-future-robots-2.jpg")`, minHeight: '100%', backgroundAttachment: 'fixed', backgroundRepeat: 'no-repeat', minWidth: '100%'}}>
             <div className={classes.logoContainer}>
                 {newsArticles.length ? (
                     <div className={classes.infoContainer}>
